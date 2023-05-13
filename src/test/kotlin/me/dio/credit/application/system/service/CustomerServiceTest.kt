@@ -8,7 +8,6 @@ import io.mockk.just
 import io.mockk.runs
 import io.mockk.verify
 import me.dio.credit.application.system.TestsStubsBuilders.buildCustomer
-import me.dio.credit.application.system.entity.Address
 import me.dio.credit.application.system.entity.Customer
 import me.dio.credit.application.system.exception.BusinessException
 import me.dio.credit.application.system.repository.CustomerRepository
@@ -16,7 +15,6 @@ import me.dio.credit.application.system.service.impl.CustomerService
 import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
-import java.math.BigDecimal
 import java.util.*
 
 @ExtendWith(MockKExtension::class)

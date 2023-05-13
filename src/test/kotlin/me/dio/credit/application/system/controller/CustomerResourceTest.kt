@@ -125,7 +125,7 @@ class CustomerResourceTest {
     @Test
     fun `should not find customer with invalid id and return 400 status`() {
         //given
-        val invalidId: Long = 2L
+        val invalidId = 2L
         //when
         //then
         mockMvc.perform(

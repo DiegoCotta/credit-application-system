@@ -6,9 +6,11 @@ import org.springframework.context.annotation.Configuration
 
 @Configuration
 class Swagger3Config {
-
     @Bean
-    fun publishApi(): GroupedOpenApi? =
-        GroupedOpenApi.builder().group("springcreditapplicationsystem-public")
-            .pathsToMatch("/api/customers/*", "/api/credits/**").build()
+    fun publicApi(): GroupedOpenApi? {
+        return GroupedOpenApi.builder()
+            .group("springcreditapplicationsystem-public")
+            .pathsToMatch("/api/customers/**", "/api/credits/**")
+            .build()
+    }
 }
