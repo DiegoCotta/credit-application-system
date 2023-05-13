@@ -14,13 +14,13 @@ import org.springframework.web.bind.annotation.*
 @RestController
 @RequestMapping("/api/customers")
 class CustomerResource(
-  private val customerService: ICustomerService
+  private val customerService: CustomerService
 ) {
 
   @PostMapping
-  fun saveCustomer(@RequestBody @Valid customerDto: CustomerDto): ResponseEntity<String> {
-    val savedCustomer = this.customerService.save(customerDto.toEntity())
-    return ResponseEntity.status(HttpStatus.CREATED).body("Customer ${savedCustomer.email} saved!")
+  fun saveCustomer(@RequestBody @Valid customerDto: CustomerDto): ResponseEntity<CustomerView> {
+    val savedCustomer: Customer = this.customerService.save(customerDto.toEntity())
+    return ResponseEntity.status(HttpStatus.CREATED).body(CustomerView(savedCustomer))
   }
 
   @GetMapping("/{id}")
